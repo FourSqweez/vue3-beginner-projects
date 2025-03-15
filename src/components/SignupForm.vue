@@ -11,29 +11,21 @@
       <option value="designer">Web Designer</option>
     </select>
 
+    <label>Skills:</label>
+    <input type="text" v-model="tempSkill" @keyup.ctrl="addSkill" />
+    <div v-for="skill in skills" :key="skill" class="pill">
+      <span @click="deleteSkill(skill)">{{ skill }}</span>
+    </div>
+
     <div class="terms">
       <input type="checkbox" required v-model="terms" />
       <label>Accept terms and conditions</label>
-    </div>
-
-    <div>
-      <input type="checkbox" value="four" v-model="names" />
-      <label>Four</label>
-    </div>
-    <div>
-      <input type="checkbox" value="alex" v-model="names" />
-      <label>Alex</label>
-    </div>
-    <div>
-      <input type="checkbox" value="meow" v-model="names" />
-      <label>Meow</label>
     </div>
   </form>
   <p>Email: {{ email }}</p>
   <p>Password: {{ password }}</p>
   <p>Role : {{ role }}</p>
   <p>Terms : {{ terms }}</p>
-  <p>Name : {{ names }}</p>
 </template>
 
 <script>
@@ -44,8 +36,24 @@ export default {
       password: '',
       role: 'designer',
       terms: false,
-      names: [],
+      tempSkill: '',
+      skills: [],
     }
+  },
+  methods: {
+    addSkill(e) {
+      console.log(e)
+
+      if (e.key === ',' && this.tempSkill) {
+        if (!this.skills.includes(this.tempSkill)) {
+          this.skills.push(this.tempSkill)
+        }
+        this.tempSkill = ''
+      }
+    },
+    deleteSkill(skill) {
+      this.skills = this.skills.filter((item) => item !== skill)
+    },
   },
 }
 </script>
