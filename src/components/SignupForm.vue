@@ -10,10 +10,16 @@
       <option value="developer">Web Developer</option>
       <option value="designer">Web Designer</option>
     </select>
+
+    <div class="terms">
+      <input type="checkbox" required v-model="terms" />
+      <label>Accept terms and conditions</label>
+    </div>
   </form>
   <p>Email: {{ email }}</p>
   <p>Password: {{ password }}</p>
   <p>Role : {{ role }}</p>
+  <p>Terms : {{ terms }}</p>
 </template>
 
 <script>
@@ -23,6 +29,7 @@ export default {
       email: 'test',
       password: '',
       role: 'designer',
+      terms: false,
     }
   },
 }
