@@ -1,11 +1,14 @@
 <template>
-  <h1>Vue3 - Reaction Timer</h1>
+  <div class="home">
+    <h1>Home</h1>
+  </div>
+  <router-view />
 </template>
 
 <script>
 export default {
-  name: 'App',
-  components: {},
+  name: 'Home',
+  setup() {},
 }
 </script>
 
@@ -15,7 +18,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #444;
-  margin-top: 60px;
+  color: #2c3e50;
 }
 </style>
