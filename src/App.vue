@@ -1,13 +1,10 @@
 <template>
-  <h1>Vue3 - Reaction Timer</h1>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link :to="{ name: 'about' }">About</router-link>
+  </nav>
+  <router-view />
 </template>
-
-<script>
-export default {
-  name: 'App',
-  components: {},
-}
-</script>
 
 <style>
 #app {
@@ -15,7 +12,26 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #444;
-  margin-top: 60px;
+  color: #fff;
+}
+
+body {
+  background: #2c3e50;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
