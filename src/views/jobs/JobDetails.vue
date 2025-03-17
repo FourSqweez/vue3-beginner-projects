@@ -2,7 +2,11 @@
   <div v-if="job" class="job-details">
     <h1>Job Details</h1>
     <h2>{{ job.title }}</h2>
-    <p>{{ job.details }}</p>
+    <p>{{ job.description }}</p>
+  </div>
+  <div v-else>
+    <h1>Job Details</h1>
+    <p>Job not found</p>
   </div>
 </template>
 
@@ -12,37 +16,14 @@ export default {
   props: ['id'],
   data() {
     return {
-      jobs: [
-        {
-          title: 'Software Engineer',
-          id: 1,
-          details:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
-        },
-        {
-          title: 'Software Engineer',
-          id: 2,
-          details:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
-        },
-        {
-          title: 'Software Engineer',
-          id: 3,
-          details:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
-        },
-      ],
+      job: null,
     }
   },
-  computed: {
-    job() {
-      return this.jobs.find((job) => job.id === parseInt(this.id))
-    },
-  },
-  created() {
-    if (!this.job) {
-      this.$router.push({ name: 'not-found' })
-    }
+  mounted() {
+    fetch(`http://localhost:3000/jobs/${this.id}`)
+      .then((res) => res.json())
+      .then((data) => (this.job = data))
+      .catch((err) => console.log(err.message))
   },
 }
 </script>

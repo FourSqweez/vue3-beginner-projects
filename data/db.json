@@ -7,13 +7,13 @@
     },
     {
       "id": 2,
-      "title": "Software Engineer",
-      "description": "We are looking for a software engineer with 3 years of experience in React and Node.js"
+      "title": "UX/UI Designer",
+      "description": "We are looking for a UX/UI designer with 3 years of experience in React and Node.js"
     },
     {
       "id": 3,
-      "title": "Software Engineer",
-      "description": "We are looking for a software engineer with 3 years of experience in React and Node.js"
+      "title": "Full Stack Developer",
+      "description": "We are looking for a full stack developer with 3 years of experience in React and Node.js"
     }
   ]
 }
